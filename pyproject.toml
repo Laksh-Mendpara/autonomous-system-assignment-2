@@ -1,0 +1,30 @@
+[project]
+name = "autonomous-assignment"
+version = "0.1.0"
+description = "Academic Helpdesk Agent — IIT Jodhpur"
+requires-python = ">=3.14"
+dependencies = [
+    "chromadb>=1.5.9",
+    "hatchling>=1.33.0",
+    "litellm>=1.106.5",
+    "pymupdf>=2.0",
+    "pypdf2>=3.0.1",
+    "python-docx>=1.2.0",
+    "rich>=15.0.0",
+    "sentence-transformers>=6.2.0",
+    "tqdm>=4.70.1",
+]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[project.scripts]
+index = "src.indexer:main"
+search = "src.search_cli:main"

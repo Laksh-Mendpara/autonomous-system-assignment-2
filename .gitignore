@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Temporary and local downloads
+temp/
+*.tar
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+missfont.log
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
