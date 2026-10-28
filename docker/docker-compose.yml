@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  # ─── Option 1: Ollama Service with Quantized Llama 3.1 8B ──────────────────────
+  ollama:
+    image: ollama/ollama:latest
+    container_name: academic-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_NUM_PARALLEL=1
+      - OLLAMA_MAX_LOADED_MODELS=1
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:11434/api/tags || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ─── Model Initializer: Automatically pulls 8B quantized model ───────────────
+  ollama-init:
+    image: curlimages/curl:latest
+    container_name: academic-ollama-init
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: >
+      sh -c "
+        echo 'Pulling Llama 3.1 8B quantized model (Q4_K_M ~4.7GB)...'
+        curl -X POST http://ollama:11434/api/pull -d '{\"name\": \"llama3.1:8b\"}'
+        echo ''
+        echo 'Model llama3.1:8b is ready for Academic Helpdesk!'
+      "
+    restart: "no"
+
+  # ─── Option 2: llama.cpp Server (Alternative for OpenAI-compatible API) ───────
+  llama-cpp:
+    image: ghcr.io/ggerganov/llama.cpp:server
+    container_name: academic-llama-cpp
+    profiles: ["llama-cpp"]
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - llama_cpp_models:/models
+    command: >
+      -m /models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+      --host 0.0.0.0
+      --port 8080
+      -c 4096
+      -t 4
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+
+volumes:
+  ollama_models:
+    name: academic_ollama_models
+  llama_cpp_models:
+    name: academic_llama_cpp_models
+
