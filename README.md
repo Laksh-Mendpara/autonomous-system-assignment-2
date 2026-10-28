@@ -381,6 +381,6 @@ The standalone submission package is located in `submission/`:
 ---
 
 ## 👥 Authors
-- **Autonomous Systems Assignment Team**
+- **Laksh Mendpara (B23CS1037)**
 - Department of Computer Science and Engineering, IIT Jodhpur
 - Academic Year: 2026–2027
