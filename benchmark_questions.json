@@ -1,0 +1,308 @@
+[
+  {
+    "id": "POL_01",
+    "category": "Policy & Regulations",
+    "question": "What is the attendance requirement to sit in the Major exam?",
+    "target_agent": "PolicyAgent",
+    "ground_truth": "A minimum of 75% attendance is required in each course (lectures, tutorials, and practicals) to be eligible to sit for the Major Examination. Condonation for 65% to 75% attendance may be granted by the course instructor on genuine medical grounds validated by the Institute Medical Officer (IMO). Attendance strictly below 65% results in an automatic DX (Debarred) grade and disqualification from the Major exam.",
+    "expected_citations": [
+      "circular_attendance_amendment_2024.md",
+      "Academic Regulations Section 4.1.9"
+    ],
+    "required_facts": ["75%", "attendance", "major", "condonation", "dx"],
+    "should_refuse": false
+  },
+  {
+    "id": "POL_02",
+    "category": "Policy & Regulations",
+    "question": "What happens if my attendance in a course falls below 65%?",
+    "target_agent": "PolicyAgent",
+    "ground_truth": "If attendance falls strictly below 65%, the student is awarded a DX (Debarred) grade in that course and is not permitted to appear in the Major Examination.",
+    "expected_citations": [
+      "circular_attendance_amendment_2024.md",
+      "Academic Regulations Section 4.1.9"
+    ],
+    "required_facts": ["dx", "debarred", "major"],
+    "should_refuse": false
+  },
+  {
+    "id": "POL_03",
+    "category": "Policy & Regulations",
+    "question": "How many Open Elective credits do I need to earn in order to get a B.Tech. Degree?",
+    "target_agent": "PolicyAgent",
+    "ground_truth": "A regular undergraduate student in the B.Tech. program must earn at least 10 to 12 Open Elective (OE) credits to complete their graduation requirements.",
+    "expected_citations": [
+      "btech_credit_requirements.md",
+      "Academic Regulations Section 11.3 (Table 11.3)",
+      "IITJ CSE Curriculum Guide"
+    ],
+    "required_facts": ["10", "12", "open elective", "credits"],
+    "should_refuse": false
+  },
+  {
+    "id": "POL_04",
+    "category": "Policy & Regulations",
+    "question": "What are the rules for make-up examinations if I miss Minor 1 due to illness?",
+    "target_agent": "PolicyAgent",
+    "ground_truth": "The student must submit a formal application for a make-up examination within 3 working days (maximum 10 days for prolonged hospitalization) accompanied by a medical certificate endorsed by the Institute Medical Officer (IMO). A make-up examination for a Minor exam requires written approval from the respective Course Instructor. Prorating of exam marks or attendance is strictly prohibited.",
+    "expected_citations": [
+      "makeup_exam_policy.md",
+      "circular_exam_policy_amendment_2024.md",
+      "Academic Regulations Section 8"
+    ],
+    "required_facts": ["make-up", "medical", "instructor", "days"],
+    "should_refuse": false
+  },
+  {
+    "id": "POL_05",
+    "category": "Policy & Regulations",
+    "question": "What is the minimum CGPA required for branch change at the end of first year for general category?",
+    "target_agent": "PolicyAgent",
+    "ground_truth": "For undergraduate B.Tech. students in the General/OBC/EWS category, a minimum CGPA of 8.5 at the end of Semester II is required to apply for branch change, along with zero backlogs (no F/E grades) and completion of all prescribed first-year credits.",
+    "expected_citations": [
+      "branch_change_policy.md",
+      "Academic Regulations Section 16",
+      "office_order_branch_change_2025.md"
+    ],
+    "required_facts": ["8.5", "branch change", "cgpa"],
+    "should_refuse": false
+  },
+  {
+    "id": "POL_06",
+    "category": "Policy & Regulations",
+    "question": "Can I withdraw from a course after the add-drop deadline, and what grade is awarded?",
+    "target_agent": "PolicyAgent",
+    "ground_truth": "Yes, after the add/drop deadline, a student may withdraw from a course within the first four weeks of the semester as specified in the Academic Calendar. The course will be awarded a 'W' grade on the grade card, which does not impact SGPA or CGPA.",
+    "expected_citations": [
+      "course_registration_rules.md",
+      "Academic Regulations Section 3.4"
+    ],
+    "required_facts": ["w grade", "withdraw", "four weeks"],
+    "should_refuse": false
+  },
+  {
+    "id": "SCH_01",
+    "category": "Schedule & Timetable",
+    "question": "What is the slot for the course Autonomous Systems?",
+    "target_agent": "ScheduleAgent",
+    "ground_truth": "The course Autonomous Systems (CSL7650 / CSL7570 / RML6020) is scheduled in Slot H. Classes are held on Tuesday, Thursday, and Saturday from 11:00 AM to 11:55 AM, taught by Dr. Ashok Joshi.",
+    "expected_citations": [
+      "timetable_sem1_all_courses.csv",
+      "slot_timing_guide.md"
+    ],
+    "required_facts": ["slot h", "autonomous systems", "11:00"],
+    "should_refuse": false
+  },
+  {
+    "id": "SCH_02",
+    "category": "Schedule & Timetable",
+    "question": "What are the class timings and days for Slot H?",
+    "target_agent": "ScheduleAgent",
+    "ground_truth": "Slot H lectures are scheduled on Tuesday, Thursday, and Saturday from 11:00 AM to 11:55 AM.",
+    "expected_citations": [
+      "slot_timing_guide.md"
+    ],
+    "required_facts": ["tuesday", "thursday", "saturday", "11:00"],
+    "should_refuse": false
+  },
+  {
+    "id": "SCH_03",
+    "category": "Schedule & Timetable",
+    "question": "How many 400 level electives have been floated by the Humanities department in this semester?",
+    "target_agent": "ScheduleAgent",
+    "ground_truth": "In Semester 1, the Department of Humanities and Social Sciences (School of Liberal Arts - SoLA) has floated exactly 11 electives at the 400 level, including LAL4060, LAL4650, LAL4040, LAL4360, LAL4030, LAL4380, LAL4110, LAL4680, LAL4350, LAL4400, and LAL4720.",
+    "expected_citations": [
+      "timetable_sem1_all_courses.csv",
+      "humanities_courses_sem1.md"
+    ],
+    "required_facts": ["11", "electives", "humanities", "sola"],
+    "should_refuse": false
+  },
+  {
+    "id": "SCH_04",
+    "category": "Schedule & Timetable",
+    "question": "How many 400 level electives are offered by Humanities department in Semester 2?",
+    "target_agent": "ScheduleAgent",
+    "ground_truth": "In Semester 2, the Department of Humanities and Social Sciences (School of Liberal Arts - SoLA) has floated 10 electives at the 400 level (LAL4110, LAL4680, LAL4030, LAL4050, LAL4040, LAL4370, LAL4380, LAL4350, LAL4650, and LAP4120).",
+    "expected_citations": [
+      "timetable_sem2_all_courses.csv",
+      "humanities_courses_sem2.md"
+    ],
+    "required_facts": ["10", "electives", "semester 2"],
+    "should_refuse": false
+  },
+  {
+    "id": "SCH_05",
+    "category": "Schedule & Timetable",
+    "question": "What is the slot and instructor for CSL2020 Data Structure and Algorithm in Sem 1?",
+    "target_agent": "ScheduleAgent",
+    "ground_truth": "CSL2020 Data Structure and Algorithm is scheduled in Slot B (Monday, Wednesday, Friday 09:00 - 09:55 AM) in Semester 1, taught by Dr. Suchetana Chakraborty (L-T-P: 3-0-2, 4.0 credits).",
+    "expected_citations": [
+      "timetable_sem1_all_courses.csv"
+    ],
+    "required_facts": ["slot b", "suchetana"],
+    "should_refuse": false
+  },
+  {
+    "id": "SCH_06",
+    "category": "Schedule & Timetable",
+    "question": "What is the timing of Slot A lectures?",
+    "target_agent": "ScheduleAgent",
+    "ground_truth": "Slot A lectures are held on Monday, Wednesday, and Friday from 08:00 AM to 08:55 AM.",
+    "expected_citations": [
+      "slot_timing_guide.md"
+    ],
+    "required_facts": ["monday", "wednesday", "friday", "08:00"],
+    "should_refuse": false
+  },
+  {
+    "id": "EML_01",
+    "category": "Faculty & Email Drafting",
+    "question": "Write an email to the course instructor of CSL7570 that I need leave for 2 days",
+    "target_agent": "EmailAgent",
+    "ground_truth": "Official instructor: Dr. Ashok Joshi (ashok.joshi@iitj.ac.in). Drafts a formal academic leave request citing medical consultation, IMO endorsement, and commitment to make up missed lectures/evaluations.",
+    "expected_citations": [
+      "Leave Rules (Academic Regulations Section 15 & 23)",
+      "Circular 51682",
+      "course_instructor_map.csv"
+    ],
+    "required_facts": ["ashok.joshi", "leave", "csl7570", "subject"],
+    "should_refuse": false
+  },
+  {
+    "id": "EML_02",
+    "category": "Faculty & Email Drafting",
+    "question": "Draft an email to instructor of Autonomous Systems requesting sick leave for 3 days due to fever",
+    "target_agent": "EmailAgent",
+    "ground_truth": "Addressed to Dr. Ashok Joshi (ashok.joshi@iitj.ac.in). Outlines 3-day sick leave due to viral fever with medical certificate attached for instructor verification.",
+    "expected_citations": [
+      "Leave Rules (Academic Regulations Section 15 & 23)",
+      "course_instructor_map.csv"
+    ],
+    "required_facts": ["sick leave", "autonomous systems", "ashok.joshi"],
+    "should_refuse": false
+  },
+  {
+    "id": "EML_03",
+    "category": "Faculty & Email Drafting",
+    "question": "Write an email to course instructor of CSL3080 Computer Networks seeking permission for make-up quiz",
+    "target_agent": "EmailAgent",
+    "ground_truth": "Addressed to Dr. Nitin Awathare (nitin.awathare@iitj.ac.in) for CSL3080 Computer Networks, formally petitioning for a make-up quiz under Academic Regulations Section 8 with verified medical justification.",
+    "expected_citations": [
+      "Academic Regulations Section 8",
+      "course_instructor_map.csv"
+    ],
+    "required_facts": ["csl3080", "computer networks", "nitin.awathare"],
+    "should_refuse": false
+  },
+  {
+    "id": "EML_04",
+    "category": "Faculty & Email Drafting",
+    "question": "Draft an email to instructor of CSL4020 Deep Learning for 2 days medical leave",
+    "target_agent": "EmailAgent",
+    "ground_truth": "Addressed to Dr. Angshuman Paul (angshuman.paul@iitj.ac.in) for CSL4020 Deep Learning in Semester 1 (or Dr. Pratik Mazumder in Semester 2), formally requesting 2 days of medical leave.",
+    "expected_citations": [
+      "Leave Rules",
+      "course_instructor_map.csv"
+    ],
+    "required_facts": ["csl4020", "deep learning", "leave"],
+    "should_refuse": false
+  },
+  {
+    "id": "EML_05",
+    "category": "Faculty & Email Drafting",
+    "question": "What is the official email address of Dr. Ashok Joshi in CSE department?",
+    "target_agent": "EmailAgent",
+    "ground_truth": "Dr. Ashok Joshi's official email address is ashok.joshi@iitj.ac.in in the Computer Science and Engineering / IDRP Department.",
+    "expected_citations": [
+      "faculty_email_directory.csv",
+      "course_instructor_map.csv"
+    ],
+    "required_facts": ["ashok.joshi@iitj.ac.in"],
+    "should_refuse": false
+  },
+  {
+    "id": "EML_06",
+    "category": "Faculty & Email Drafting",
+    "question": "Write an email to the instructor of CSL2060 Software Engineering applying for 1 day leave",
+    "target_agent": "EmailAgent",
+    "ground_truth": "Addressed to Dr. Romi Banerjee (romi.banerjee@iitj.ac.in) for CSL2060 Software Engineering, applying for 1 day leave of absence.",
+    "expected_citations": [
+      "Leave Rules",
+      "course_instructor_map.csv"
+    ],
+    "required_facts": ["romi.banerjee", "csl2060"],
+    "should_refuse": false
+  },
+  {
+    "id": "OOS_01",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "What are the available dining options on the campus?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that campus dining, mess menus, and food options fall outside the scope of the Academic Helpdesk. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope", "dining"],
+    "should_refuse": true
+  },
+  {
+    "id": "OOS_02",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "What is the best way to reach the campus from Jodhpur city center?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that city transportation and travel directions are outside the scope of the Academic Helpdesk. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope", "transportation"],
+    "should_refuse": true
+  },
+  {
+    "id": "OOS_03",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "Where can I find late-night snacks or canteens inside the campus?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that non-academic eatery/snack queries are outside academic helpdesk scope. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope"],
+    "should_refuse": true
+  },
+  {
+    "id": "OOS_04",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "How do I book a cab from Jodhpur railway station to IIT Jodhpur?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that cab bookings and railway station transit are outside academic scope. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope"],
+    "should_refuse": true
+  },
+  {
+    "id": "OOS_05",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "What sports tournaments are scheduled in the campus gym this weekend?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that sports events and gymnasium schedules fall outside academic scope. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope"],
+    "should_refuse": true
+  },
+  {
+    "id": "OOS_06",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "What is the weather forecast for Jodhpur this week?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that meteorological and weather queries fall outside academic scope. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope"],
+    "should_refuse": true
+  },
+  {
+    "id": "OOS_07",
+    "category": "Out-of-Scope (Refusal)",
+    "question": "Which hostel has the best laundry facilities on campus?",
+    "target_agent": null,
+    "ground_truth": "Polite refusal stating that hostel accommodation and laundry amenities fall outside academic scope. Logged to unanswered_questions.jsonl.",
+    "expected_citations": ["None (Refusal of out-of-scope inquiry)"],
+    "required_facts": ["do not have information", "scope"],
+    "should_refuse": true
+  }
+]
+
